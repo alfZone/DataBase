@@ -5,7 +5,7 @@ use classes\db\Database;
 /**
  * this classe implements a generic web service able to read a sql query and return an array or a json string.
  * @author António Lira Fernandes
- * @version 1.4
+ * @version 1.5
  * @updated 2022-02-24
  */
 
@@ -22,8 +22,7 @@ use classes\db\Database;
 //public function webService() takes the result array and creates a json
 
 //changes:
-// documentations   
-// add the autoQuery method 
+// Error on autoQuery on UPDATE SQL
 
 //2do
 // improve Action's method to look at SQL and decide whether to execute or read query. Make the decision based on the use of select or insert, update or delete
@@ -98,9 +97,12 @@ public function autoQuery($query, $parameters){
     if (array_key_exists($query, $this->instrucaoSQL)){
       $aux= strtoupper($this->instrucaoSQL[$query]);
       $pos = strpos($aux, "SELECT");
-      if ($pos!=0){
+      //echo "pos=$pos<br>sql=". $this->instrucaoSQL[$query] . " <bR><bR>";
+      if ($pos===false){
+        //echo "executar";
         $this->execQuery($query, $parameters);
       }else{
+        //echo "ler";
         $this->getQuery($query, $parameters);
       }
     }else{
@@ -207,3 +209,4 @@ public function autoQuery($query, $parameters){
 }
 
 ?>
+
