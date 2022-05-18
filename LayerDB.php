@@ -7,6 +7,7 @@ use classes\db\Database;
  * @author António Lira Fernandes
  * @version 2.0
  * @updated 2022-05-24
+ * https://github.com/alfZone/DataBase
  */
 
 //Methods
@@ -24,8 +25,6 @@ use classes\db\Database;
 //changes:
 // Error on autoQuery on UPDATE SQL
 
-//2do
-// improve Action's method to look at SQL and decide whether to execute or read query. Make the decision based on the use of select or insert, update or delete
 
 ini_set("error_reporting", E_ALL);
 
