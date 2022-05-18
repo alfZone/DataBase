@@ -5,8 +5,8 @@ use classes\db\Database;
 /**
  * this classe implements a generic web service able to read a sql query and return an array or a json string.
  * @author António Lira Fernandes
- * @version 1.5
- * @updated 2022-02-24
+ * @version 2.0
+ * @updated 2022-05-24
  */
 
 //Methods
@@ -45,25 +45,19 @@ abstract class LayerDB {
   } 
   
   
- abstract   public function doAction($accao, $parameters="");
- /*
- {
+ public function doAction($accao, $parameters=""){
   switch ($accao){
-      case "ActionName":
+      case "InsertOrUpdateOrDelete":
             $this->execQuery($accao, $parameters);
             break;
-      case "ActionName2":
+      case "Select":
             $this->getQuery($accao, $parameters);
             break;
-      case "ActionName3":
-      case "listUsAct":
-            //Other functions
-            break;  
       default:
           $this->autoQuery($accao, $parameters);
           break;
     }
-  }*/
+  }
  
   
   //##########################################################################################################################################################################
